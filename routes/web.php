@@ -53,8 +53,11 @@ Route::middleware([
         // $users = User::all();
 
         // Query Builder
-        $users = DB::table('users')->get();
+       //$users = DB::table('users')->get();
 
-        return view('dashboard', ['users' => $users]); // Correct syntax
+    //     return view('dashboard', ['users' => $users]); // Correct syntax
+    // })->name('dashboard');
+
+    return view('admin.index'); // Correct syntax
     })->name('dashboard');
 });
