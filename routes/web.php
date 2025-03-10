@@ -12,7 +12,9 @@ Route::get('/email/verify', function () {
 
 
 Route::get('/', function () {
-    return view('home');
+
+    $brands = DB::table('brands')->get();
+    return view('home', compact('brands'));
 });
 
 //Category Controller

@@ -1,12 +1,20 @@
-<x-app-layout>
+
+@extends('admin.admin_master')
+
+@section('admin')
+
+
+
+
+{{-- <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{-- {{ __('Dashboard') }} --}}
+            {{ __('Dashboard') }}
 
           Edit Brand<b></b>
 
         </h2>
-    </x-slot>
+    </x-slot> --}}
 
        {{-- Sucess Message --}}
        @if (session('success'))
@@ -80,4 +88,6 @@
 
 </div>
     </div>
-</x-app-layout>
+{{-- </x-app-layout> --}}
+
+@endsection
