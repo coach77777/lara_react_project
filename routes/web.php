@@ -5,6 +5,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\HomeController;
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
@@ -42,7 +43,15 @@ Route::get('/brand/delete/{id}', [BrandController::class, 'Delete'])->name('bran
 Route::get('/multi/image', [BrandController::class, 'Multpic'])->name('multi.image');
 Route::post('/multi/add', [BrandController::class,'StoreImg'])->name('store.image');
 
+// admin All Routes
+Route::get('/home/slider', [HomeController::class, 'HomeSlider'])->name('home.slider');
+Route::get('/add/slider', [HomeController::class, 'AddSlider'])->name('add.slider');
+Route::post('/store/slider', [HomeController::class, 'StoreSlider'])->name('store.slider');
 
+Route::get('slider/edit/{id}', [HomeController::class, 'edit'])->name('slider.edit');
+
+Route::post('/slider/update/{id}', [HomeController::class, 'Update'])->name('slider.update');
+Route::get('/slider/delete/{id}', [HomeController::class, 'Delete'])->name('slider.delete');
 
 Route::middleware([
     'auth:sanctum',
