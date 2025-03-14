@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
@@ -15,7 +16,8 @@ Route::get('/email/verify', function () {
 Route::get('/', function () {
 
     $brands = DB::table('brands')->get();
-    return view('home', compact('brands'));
+    $abouts = DB::table('home_abouts')->first();
+    return view('home', compact('brands','abouts'));
 });
 
 //Category Controller
@@ -52,6 +54,17 @@ Route::get('slider/edit/{id}', [HomeController::class, 'edit'])->name('slider.ed
 
 Route::post('/slider/update/{id}', [HomeController::class, 'Update'])->name('slider.update');
 Route::get('/slider/delete/{id}', [HomeController::class, 'Delete'])->name('slider.delete');
+
+
+// Home About All Routes
+Route::get('/home/about', [AboutController::class, 'HomeAbout'])->name('home.about');
+Route::get('/add/about', [AboutController::class, 'AddAbout'])->name('add.about');
+Route::post('/store/about', [AboutController::class, 'StoreAbout'])->name('store.about');
+Route::get('/about/edit/{id}', [AboutController::class, 'EditAbout'])->name('about.edit');
+Route::post('/update/homeabout/{id}', [AboutController::class, 'UpdateAbout'])->name('update.homeabout');
+Route::get('/about/delete/{id}', [AboutController::class, 'DeleteAbout'])->name('about.delete');
+
+
 
 Route::middleware([
     'auth:sanctum',
