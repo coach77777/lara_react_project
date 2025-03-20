@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ServiceController;
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
@@ -17,7 +18,8 @@ Route::get('/', function () {
 
     $brands = DB::table('brands')->get();
     $abouts = DB::table('home_abouts')->first();
-    return view('home', compact('brands','abouts'));
+    $services = DB::table('services')->get();
+    return view('home', compact('brands', 'abouts', 'services'));
 });
 
 //Category Controller
@@ -63,6 +65,13 @@ Route::post('/store/about', [AboutController::class, 'StoreAbout'])->name('store
 Route::get('/about/edit/{id}', [AboutController::class, 'EditAbout'])->name('about.edit');
 Route::post('/update/homeabout/{id}', [AboutController::class, 'UpdateAbout'])->name('update.homeabout');
 Route::get('/about/delete/{id}', [AboutController::class, 'DeleteAbout'])->name('about.delete');
+
+// Home Service All routes
+Route::get('/home/service', [ServiceController::class, 'HomeService'])->name('home.service');
+Route::get('/add/service', [ServiceController::class, 'AddService'])->name('add.service');
+Route::post('/store/service', [ServiceController::class, 'StoreService'])->name('store.service');
+Route::get('/service/edit/{id}', [ServiceController::class, 'EditService'])->name('service.edit');
+Route::post('/update/service/{id}', [ServiceController::class, 'UpdateService'])->name('update.service');
 
 
 

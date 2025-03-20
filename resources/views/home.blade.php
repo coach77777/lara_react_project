@@ -20,7 +20,7 @@
           </p>
           <ul>
             <li><i class="ri-check-double-line"></i> Responsive and intuitive UI/UX</li>
-            <li><i class="ri-check-double-line"></i> API integrations for seamless functionalityt</li>
+            <li><i class="ri-check-double-line"></i> API integrations for seamless functionality</li>
             <li><i class="ri-check-double-line"></i> With our expertise, we transform complex ideas into Laravel-powered solutions that help businesses thrive.</li>
           </ul>
           <p class="font-italic">
@@ -32,98 +32,42 @@
     </div>
   </section><!-- End About Us Section -->
 
-  <!-- ======= Services Section ======= -->
-  <section id="services" class="services section-bg">
+ <!-- ======= Services Section ======= -->
+<section id="services" class="services section-bg">
     <div class="container" data-aos="fade-up">
-
-      <div class="section-title">
-        <h2>Services</h2>
-        <p>Laborum repudiandae omnis voluptatum consequatur mollitia ea est voluptas ut</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-          <div class="icon-box iconbox-blue">
-            <div class="icon">
-              <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-
-              </svg>
-              <i class="bx bxl-dribbble"></i>
-            </div>
-            <h4><a href="">Lorem Ipsum</a></h4>
-            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-          </div>
+        <div class="section-title">
+            <h2>Services</h2>
+            <p>Laborum repudiandae omnis voluptatum consequatur mollitia ea est voluptas ut</p>
         </div>
 
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-          <div class="icon-box iconbox-orange ">
-            <div class="icon">
-              <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+        <div class="row">
+            @foreach($services as $index => $service)
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 w-100">
 
-              </svg>
-              <i class="bx bx-file"></i>
-            </div>
-            <h4><a href="">Sed Perspiciatis</a></h4>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-          </div>
-        </div>
 
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon-box iconbox-pink">
-            <div class="icon">
-              <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-
-              </svg>
-              <i class="bx bx-tachometer"></i>
-            </div>
-            <h4><a href="">Magni Dolores</a></h4>
-            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
-          <div class="icon-box iconbox-yellow">
-            <div class="icon">
-              <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-
-              </svg>
-              <i class="bx bx-layer"></i>
-            </div>
-            <h4><a href="">Nemo Enim</a></h4>
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
-          <div class="icon-box iconbox-red">
-            <div class="icon">
-              <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-
-              </svg>
-              <i class="bx bx-slideshow"></i>
-            </div>
-            <h4><a href="">Dele Cardo</a></h4>
-            <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon-box iconbox-teal">
-            <div class="icon">
-              <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-
-              </svg>
-              <i class="bx bx-arch"></i>
-            </div>
-            <h4><a href="">Divera Don</a></h4>
-            <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
-          </div>
-        </div>
-
-      </div>
-
+                    <div class="icon-box"
+     style="--icon-color: {{ $service->color ?? '#45b2ff' }};
+            --svg-default: #f5f5f5;
+            --hover-bg: {{ $service->color ?? '#45b2ff' }};">
+    <h4><a href="#">{{ $service->title }}</a></h4>
+    <p>{{ $service->description }}</p>
+    <div class="icon">
+        <span class="svg-container">
+            {!! str_replace(['fill="#f5f5f5"', 'fill="#ffffff"', 'fill="'], ['','',''], $service->svg_icon) !!}
+        </span>
+        <i class="{{ $service->font_icon }}" style="color: var(--icon-color);"></i>
     </div>
-  </section><!-- End Services Section -->
+</div>
+
+
+
+
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+<!-- End Services Section -->
 
   <!-- ======= Portfolio Section ======= -->
   <section id="portfolio" class="portfolio">

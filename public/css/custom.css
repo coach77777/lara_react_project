@@ -1,0 +1,49 @@
+/* Default icon box styling */
+.icon-box {
+    background: transparent;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 0 15px rgba(0, 0, 0, 0.1);
+    height: 100%; /* Ensures all boxes take the full height */
+    width: 100%; /* Forces all divs to be equal width */
+    min-width: 280px; /* Ensures a minimum width */
+    max-width: 100%; /* Prevents shrinking */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Icon container */
+.icon-box .icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+}
+
+/* Ensure SVG color is controlled by CSS */
+.icon-box .icon svg path {
+    fill: var(--svg-default) !important; /* Default Gray */
+    transition: fill 0.3s ease-in-out;
+}
+
+/* Font Icon inside SVG */
+.icon-box .icon i {
+    position: absolute;
+    font-size: 30px;
+    color: var(--icon-color); /* Assigned from DB */
+    transition: color 0.3s ease-in-out;
+}
+
+/*  Hover Effect - Swap Colors  */
+.icon-box:hover .icon i {
+    color: var(--svg-default) !important; /* Icon changes to gray */
+}
+
+.icon-box:hover .icon svg path {
+    fill: var(--hover-bg) !important; /* SVG shape changes to DB color */
+}

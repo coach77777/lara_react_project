@@ -31,6 +31,7 @@
   <link href="{{ asset('frontend/assets/vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
   <link href="{{ asset('frontend/assets/vendor/aos/aos.css') }}" rel="stylesheet">
   <link href="{{ asset('frontend/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('frontend/assets/css/style.css') }}" rel="stylesheet">
