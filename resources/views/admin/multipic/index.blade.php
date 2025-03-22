@@ -1,9 +1,13 @@
-<x-app-layout>
-    <x-slot name="header">
+@extends('admin.admin_master')
+@section('admin')
+
+
+{{-- <x-app-layout> --}}
+    {{-- <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <b> Multi Pictures</b>
         </h2>
-    </x-slot>
+    </x-slot> --}}
 
     <div class="py-12">
         <div class="container overflow-hidden"> <!-- Added overflow-hidden -->
@@ -21,7 +25,7 @@
                               </div>
                           @endif
 
-                          
+
                         @foreach ($images as $multi)
                             <div class="col-md-3 mt-4"> <!-- Removed m-2 -->
                                 <div class="card">
@@ -59,4 +63,6 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+{{-- </x-app-layout> --}}
+
+@endsection

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use App\Models\Multipic;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
@@ -19,7 +20,8 @@ Route::get('/', function () {
     $brands = DB::table('brands')->get();
     $abouts = DB::table('home_abouts')->first();
     $services = DB::table('services')->get();
-    return view('home', compact('brands', 'abouts', 'services'));
+    $images = Multipic::all();
+    return view('home', compact('brands', 'abouts', 'services', 'images'));
 });
 
 //Category Controller
@@ -65,6 +67,9 @@ Route::post('/store/about', [AboutController::class, 'StoreAbout'])->name('store
 Route::get('/about/edit/{id}', [AboutController::class, 'EditAbout'])->name('about.edit');
 Route::post('/update/homeabout/{id}', [AboutController::class, 'UpdateAbout'])->name('update.homeabout');
 Route::get('/about/delete/{id}', [AboutController::class, 'DeleteAbout'])->name('about.delete');
+
+// portfolio page
+Route::get('/portfolio', [AboutController::class, 'Portfolio'])->name('portfolio');
 
 // Home Service All routes
 Route::get('/home/service', [ServiceController::class, 'HomeService'])->name('home.service');

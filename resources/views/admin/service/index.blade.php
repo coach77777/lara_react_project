@@ -28,13 +28,13 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th scope="col">SL No.</th>
-                                    <th scope="col">Service Title</th>
-                                    <th scope="col">Service Description</th>
-                                    <th scope="col">Service Icon</th>
-                                    <th scope="col">Font Icon</th>
-                                    <th scope="col">Color</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col" width="5%">SL No.</th>
+                                    <th scope="col" width="10%">Service Title</th>
+                                    <th scope="col" width="20%">Service Description</th>
+                                    <th scope="col" width="20%">Service Icon</th>
+                                    <th scope="col" width="5%">Font Icon</th>
+                                    <th scope="col" width="10%">Color</th>
+                                    <th scope="col" width="30%">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
