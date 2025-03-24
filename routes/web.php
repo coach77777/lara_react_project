@@ -9,6 +9,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
@@ -20,7 +21,8 @@ Route::get('/', function () {
     $brands = DB::table('brands')->get();
     $abouts = DB::table('home_abouts')->first();
     $services = DB::table('services')->get();
-    $images = Multipic::all();
+    $images = Multipic::all();//Portfolio
+
     return view('home', compact('brands', 'abouts', 'services', 'images'));
 });
 
@@ -78,6 +80,20 @@ Route::post('/store/service', [ServiceController::class, 'StoreService'])->name(
 Route::get('/service/edit/{id}', [ServiceController::class, 'EditService'])->name('service.edit');
 Route::post('/update/service/{id}', [ServiceController::class, 'UpdateService'])->name('update.service');
 
+// Admin Contact Page
+Route::get('/admin/contact', [ContactController::class, 'AdminContact'])->name('admin.contact');
+Route::get('/add/contact', [ContactController::class, 'AddContact'])->name('add.contact');
+Route::post('/store/contact', [ContactController::class, 'StoreContact'])->name('store.contact');
+Route ::get('/contact/edit/{id}', [ContactController::class, 'EditContact'])->name('contact.edit');
+Route::post('/update/contact/{id}', [ContactController::class, 'UpdateContact'])->name('update.contact');
+Route::get('/contact/delete/{id}', [ContactController::class, 'DeleteContact'])->name('contact.delete');
+
+
+//Home Contact Page Route
+Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');
+Route ::post('/contact/form', [ContactController::class, 'ContactForm'])->name('contact_form');
+Route::get('/admin/message', [ContactController::class, 'AdminMessage'])->name('admin.message');
+Route::get('/message/delete/{id}', [ContactController::class, 'DeleteMessage'])->name('message.delete');
 
 
 Route::middleware([

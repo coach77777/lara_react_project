@@ -1,0 +1,7 @@
+{
+    "watch": ["routes", "config", "app"],
+    "ext": "php,blade.php",
+   "exec": "php artisan view:clear"
+  }
+
+
