@@ -59,7 +59,16 @@ $last_img = 'image/brand/'.$name_gen;
                 'created_at' => Carbon::now()
             ]);
 
-       return Redirect()->back()->with('success', 'Brand inserted successfully');
+            $notification = array(
+                'message' => 'Brand inserted successfully',
+                'alert-type' => 'success'
+            );
+
+            // with Toaster
+
+            return Redirect()->back()->with($notification);
+
+    //    return Redirect()->back()->with('success', 'Brand inserted successfully');
    }
 
    public function Edit($id){
