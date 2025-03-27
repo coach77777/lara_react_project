@@ -5,8 +5,7 @@
 
         <h3>Admin Message</h3>
         <br>
-        <a href="{{ route('add.contact') }}"><button class="btn btn-info">Add Contact Message</button></a>
-        <br><br>
+
 
         <div class="container">
             <div class="row">
@@ -31,10 +30,10 @@
                             <thead>
                                 <tr>
                                     <th scope="col" width="5%">SL No.</th>
-                                    <th scope="col" width="35%">Name</th>
+                                    <th scope="col" width="10%">Name</th>
                                     <th scope="col" width="15%"> Email</th>
                                     <th scope="col" width="15%">Subject</th>
-                                    <th scope="col" width="15%">Message</th>
+                                    <th scope="col" width="40%">Message</th>
                                     <th scope="col" width="15%">Action</th>
                                 </tr>
                             </thead>

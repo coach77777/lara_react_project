@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ChangePassController;
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
@@ -117,3 +118,8 @@ Route::middleware([
 });
 
 Route::get('/user/logout', [BrandController::class, 'Logout'])->name('user.logout');
+
+//Change Password and user profile
+Route::get('/user/password', [ChangePassController::class, 'CPassword'])->name('change.password');
+Route::post('/password/update', [ChangePassController::class, 'UpdatePassword'])->name('password.update');
+
