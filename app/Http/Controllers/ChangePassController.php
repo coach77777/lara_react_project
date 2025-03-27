@@ -43,5 +43,38 @@ class ChangePassController extends Controller
         }
 
     }
+    // Profile Update
+    public function PUpdate()
+    {
+        if(Auth::user()){
+            $user = User::find(Auth::user()->id);
+            if($user){
+                return view('admin.body.update_profile', compact('user'));
+            }
+        }
+
+    }
+    public function UpdateProfile(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email'
+        ]);
+
+        $user = User::find(Auth::user()->id);
+        if($user){
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->save();
+            return Redirect()->back()->with('success', 'User Profile Updated Successfully');
+            // $notification = array(
+            //     'message' => 'User Profile Updated Successfully',
+            //     'alert-type' => 'success'
+            // );
+        }else{
+            //     $notification = array(
+            return Redirect()->back();
+        }
+    }
 }
 

@@ -123,3 +123,6 @@ Route::get('/user/logout', [BrandController::class, 'Logout'])->name('user.logou
 Route::get('/user/password', [ChangePassController::class, 'CPassword'])->name('change.password');
 Route::post('/password/update', [ChangePassController::class, 'UpdatePassword'])->name('password.update');
 
+// user profile
+Route ::get('/user/profile', [ChangePassController::class, 'PUpdate'])->name('profile.update');
+Route ::post('/user/profile/update', [ChangePassController::class, 'UpdateProfile'])->name('update.user.profile');
